@@ -13,10 +13,19 @@ def view(username: str, authenticator):
             st.progress(50,
             "Patient Briggs has completed 50% of her consulations and laboratory exam")
 
+            st.empty()
             tasks, status, next_due = st.columns([0.6, 0.2, 0.2])
-            tasks.write("Consultation")
+            tasks.subheader("Consultation")
             status.warning("Upcoming")
             next_due.date_input(label="Upcoming Schedule", help="You can change /reschedule this task")
+            st.divider()
+
+            tasks.subheader("HbA1c Laborator")
+            status.success("Completed")
+            next_due.date_input(label="Upcoming Schedule",
+            value=datetime(2023,2,14),
+            help="You can change/reschedule this task"
+            )
             st.divider()
         customize_widget("stExpander", "whit")
 
