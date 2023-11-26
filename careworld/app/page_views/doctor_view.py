@@ -42,7 +42,7 @@ def _create_task(task_list: dict):
             statuses[values['status']](values["status"])
             st.date_input(label="Upcoming Schedule", 
                                 value=values['date'],
-                                help="You can reschedule this task")
+                                help="You can reschedule this checkpoint")
             st.divider()
 
 def _add_task(task_list: dict):
@@ -52,13 +52,13 @@ def _add_task(task_list: dict):
                             'Albumin-Crea Ratio','ECG'],
              None: []
              }
-    create = st.button('Create New Task', use_container_width=True)
+    create = st.button('Create New Checkpoint', use_container_width=True)
 
     if create:
-        with st.form('Add Task Details'):
-            task_type = st.selectbox('Task Type',
+        with st.form('Add Checkpoint Details'):
+            task_type = st.selectbox('Checkpoint Type',
                         ['Consultation','Laboratory'])
-            task_detail = st.selectbox('Task Detail',
+            task_detail = st.selectbox('Checkpoint Detail',
                                     tasks[task_type])
             due_date = st.date_input('Scheduled Date')
             submitted = st.form_submit_button("Create")

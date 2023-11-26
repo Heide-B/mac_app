@@ -16,10 +16,10 @@ def view(username: str, authenticator):
     with tab2:
         current_seeds = authenticator.credentials['usernames'][st.session_state['username']]['seeds']
         pull, s = st.columns(2)
-        pull.success('Use 75🌱 to pull a friend/collectible for your world! Complete more tasks to get more seeds')
+        pull.success('Use 75🌱 to pull a friend/collectible for your world! Complete more checkpoints to get more seeds')
         g = pull.button('Grow a Friend!', help='Use 75🌱 to pull a friend/collectible! Add more friends to your world!')
         s.metric('Current no. of 🌱Seeds:', current_seeds, help='Your total seeds so far! Use them to redeem rewards. \
-                  Complete tasks to get more seeds!')
+                  Complete checkpoints to get more seeds!')
         customize_widget('stMetric', 'white')
         customize_widget('stNotificationContentSuccess', 'white')
 
@@ -51,7 +51,7 @@ def _task_view():
             "pts": 20,
             "details": f"""Your last Blood Pressure check was on {datetime(2023,7,14).date()}.
                         Everytime you visit your doctor, they need to make sure your heart is healthy!
-                        Input your blood pressure to cross off this task.
+                        Input your blood pressure to cross off this checkpoint.
                          """
         },
     }
@@ -93,7 +93,7 @@ def _task_view():
                      and v not in [0, None, False]}
             
             if len(info) > 0:
-                modal = modal_window('dail', 'Task Details')
+                modal = modal_window('dail', 'Checkpoint Details')
                 modal.write(list(info.values())[0])
 
         customize_widget('stExpander', 'white')
@@ -108,7 +108,7 @@ def _create_task(task_list: dict):
     for name, values in task_list.items():
         key = values['widget']+'-'+name+'_'+str(random.randint(1,1000))
         with st.container():
-            show_details = st.toggle('Task info', help='Enable to show details about this task!',
+            show_details = st.toggle('Task info', help='Enable to show details about this checkpoint!',
                                         key='details'+key)
             check = widgets[values['widget']](name, value=values['default'], key='checker'+key)
             st.warning(f'Due Date {values["due_date"]}', icon='🧭')
