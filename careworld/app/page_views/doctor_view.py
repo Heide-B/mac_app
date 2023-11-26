@@ -15,7 +15,7 @@ def view(username: str, authenticator):
 
             tasks, status, next_due = st.columns([0.6, 0.2, 0.2])
             tasks.write("Consultation")
-            status.warn("Upcoming")
+            status.warning("Upcoming")
             next_due.date_input(help="Upcoming Schedule of consult. You can change /reschedule this task")
             st.divider()
         customize_widget("stExpander", "whit")
