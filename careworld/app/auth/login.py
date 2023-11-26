@@ -2,7 +2,6 @@ import streamlit_authenticator as stauth
 import streamlit as st
 from app.page_views import (
     doctor_view as doctor,
-    parent_view as parent,
     patient_view as patient,
 )
 from utils.helpers import (
@@ -15,7 +14,7 @@ from yaml.loader import SafeLoader
 def login_page():
     with open('careworld/config/auth.yaml') as file:
         config = yaml.load(file, Loader=SafeLoader)
-
+    
     authenticator = stauth.Authenticate(
         config['credentials'],
         config['cookie']['name'],
@@ -41,8 +40,6 @@ def login_page():
     st.session_state['auth_obj'] = authenticator
 
 def _register_users(authenticator):
-    # modal = Modal("User Registration", key='user_reg')
-    # modal.open()
     modal = modal_window('user_reg','User Registration')
     with modal:
         authenticator.register_user('Register user', preauthorization=False)
@@ -50,7 +47,6 @@ def _register_users(authenticator):
 def get_profile():
     profile_map = {
         'doctor': doctor,
-        'parent': parent,
         'patient': patient,
     }
     with open('careworld/config/auth.yaml') as file:

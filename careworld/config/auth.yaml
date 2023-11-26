@@ -3,8 +3,8 @@ credentials:
     jsmith:
       email: jsmith@gmail.com
       name: John Smith
-      password: abc # To be replaced with hashed password
-      profile: parent
+      password: $2b$12$veUHDUOxMPpYTgIivZbUqufvgGlv3zX5uZ5np7dmGdmtOB0Z1e2q6
+      profile: doctor
     rbriggs:
       email: rbriggs@gmail.com
       name: Rebecca Briggs
