@@ -48,10 +48,13 @@ def modal_window(key: str,
         f"""
         <style>
         div[data-modal-container='true'][key='{key}'] {{
-            position: fixed; 
+            position: absolute; 
             width: 100vw !important;
             left: 0;
-            z-index: 999992;
+            z-index: 99992;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }}
 
         div[data-modal-container='true'][key='{key}'] > div:first-child {{
@@ -69,18 +72,18 @@ def modal_window(key: str,
                 right: 0;
                 top: 0;
                 bottom: 0;
-                z-index: 1000;
+                z-index: 100;
                 background-color: rgba(0, 0, 0, 0.5);
         }}
         div[data-modal-container='true'][key='{key}'] > div:first-child {{
-            max-width: 744px;
+            max-width: 544px;
         }}
 
         div[data-modal-container='true'][key='{key}'] > div:first-child > div:first-child {{
             width: unset !important;
             background-color: #fff;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 10px;
+            margin-top: 5px;
             margin-left: -20px;
             margin-right: -20px;
             margin-bottom: -40px;
@@ -88,10 +91,10 @@ def modal_window(key: str,
             border-radius: 5px;
         }}
         div[data-modal-container='true'][key='{key}'] > div:first-child > div:first-child > div:first-child  {{
-            overflow-y: scroll;
-            max-height: 80vh;
+            overflow-y: hidden;
+            max-height: 70vh;
             overflow-x: hidden;
-            max-width: 744px;
+            max-width: 544px;
         }}
         
         div[data-modal-container='true'][key='{key}'] > div > div:nth-child(2)  {{

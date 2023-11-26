@@ -10,6 +10,7 @@ credentials:
       name: Rebecca Briggs
       password: $2b$12$uNaTgvGPG9rMbzOJHYaPQePw0DUfp1qHBrSq6l4O304qani6pKFpm
       profile: patient
+      seeds: 100
 cookie:
   expiry_days: 30
   key: random_signature_key # Must be string

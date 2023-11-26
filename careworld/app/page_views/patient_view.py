@@ -2,13 +2,36 @@ import streamlit as st
 from utils.helpers import customize_widget, modal_window
 from datetime import datetime
 import random
+import os
 
 def view(username: str, authenticator):
     with st.container():
         st.title(f'Welcome Adventurer: {username}')
         authenticator.logout('Logout', 'main')
-        st.divider()
+
+    tab1, tab2 = st.tabs(["Adventure", "Redeem Seeds"])
+    with tab1:
+        _task_view()
     
+    with tab2:
+        current_seeds = authenticator.credentials['usernames'][st.session_state['username']]['seeds']
+        pull, s = st.columns(2)
+        pull.success('Use 75🌱 to pull a friend/collectible for your world! Complete more tasks to get more seeds')
+        g = pull.button('Grow a Friend!', help='Use 75🌱 to pull a friend/collectible! Add more friends to your world!')
+        s.metric('Current no. of 🌱Seeds:', current_seeds, help='Your total seeds so far! Use them to redeem rewards. \
+                  Complete tasks to get more seeds!')
+        customize_widget('stMetric', 'white')
+        customize_widget('stNotificationContentSuccess', 'white')
+
+        if current_seeds >= 75 and g:
+            directory = "careworld/images/collectibles/"
+            image = _chooseRandomImage(directory)
+            modal = modal_window('main adv',
+                                 f'Congratulations! Meet {image.split(".")[0]}')
+            st.balloons()
+            modal.image(directory+image, caption=f'Congratulations! Meet {image.split(".")[0]}', width=300)
+
+def _task_view():
     task_list = {
         "Doctor's Visit": {
             "widget": 'checkbox',
@@ -80,7 +103,7 @@ def _create_task(task_list: dict):
         'number_input': st.number_input,
         'checkbox': st.checkbox,
         'text_input': st.text_input,
-    }   
+    }
 
     for name, values in task_list.items():
         key = values['widget']+'-'+name+'_'+str(random.randint(1,1000))
@@ -101,3 +124,16 @@ def _update_value(task_list: dict, name: str):
     task_list[name]['complete'] = True
 
     return task_list
+
+def _chooseRandomImage(directory):
+    imgExtension = ["png", "jpeg", "jpg"]
+    allImages = list()
+
+    for img in os.listdir(directory):
+        ext = img.split(".")[len(img.split(".")) - 1]
+        if (ext in imgExtension):
+            allImages.append(img)
+    choice = random.randint(0, len(allImages) - 1)
+    chosenImage = allImages[choice]
+
+    return chosenImage

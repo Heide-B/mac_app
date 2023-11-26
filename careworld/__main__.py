@@ -26,6 +26,6 @@ if __name__ == '__main__':
 
     if 'authentication_status' not in st.session_state or st.session_state['authentication_status'] == None:
         login_page()
-    elif 'authentication_status' in st.session_state and st.session_state['authentication_status']:
+    elif 'authentication_status' in st.session_state or st.session_state['authentication_status']:
         profile_view = get_profile()
         profile_view.view(st.session_state['name'].split(' ')[0], st.session_state['auth_obj'])
