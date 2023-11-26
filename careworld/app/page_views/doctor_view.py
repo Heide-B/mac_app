@@ -4,7 +4,7 @@ from datetime import datetime
 
 def view(username: str, authenticator):
     with st.container():
-        st.write(f'Welcome doctor: {username}!')
+        st.title(f'Welcome doctor: {username}!')
         st.divider()
     
     with st.container():
