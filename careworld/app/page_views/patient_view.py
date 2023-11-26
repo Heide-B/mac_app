@@ -46,47 +46,57 @@ def view(username: str):
 
     with st.container():
         with st.expander(':round_pushpin: Main Adventure', True):
-            _create_task(task_list)
-            check = {k: task_list[f"{k.split('details')[1].split('-')[1].split('_')[0]}"]['details'] for k, v in st.session_state.items() if "details" in k \
+            task_list = _create_task(task_list)
+            info = {k: task_list[f"{k.split('details')[1].split('-')[1].split('_')[0]}"]['details'] for k, v in st.session_state.items() if "details" in k \
                      and k.split('details')[1].split('-')[1].split('_')[0] in task_list.keys()\
                         and v == True}
-            if len(check) > 0:
+            completed = {k: task_list['completed'] for k, v in task_list.items() \
+                         if "completed" in v.keys() }
+
+            if len(info) > 0:
                 modal = modal_window('main adv', 'Task Details')
-                modal.write(list(check.values())[0])
-    
+                modal.write(list(info.values())[0])
+        customize_widget('stExpander', 'white')
+
+    with st.container():
         with st.expander(':four_leaf_clover: Daily Adventures', True):
-            _create_task(dailies)
-            check = {k: dailies[f"{k.split('details')[1].split('-')[1].split('_')[0]}"]['details'] for k, v in st.session_state.items() if "details" in k \
+            dailies = _create_task(dailies)
+            info = {k: dailies[f"{k.split('details')[1].split('-')[1].split('_')[0]}"]['details'] for k, v in st.session_state.items() if "details" in k \
                      and k.split('details')[1].split('-')[1].split('_')[0] in dailies.keys()\
                      and v == True}
-            if len(check) > 0:
+            completed = {k: dailies[f"{k.split('checker')[1].split('-')[1].split('_')[0]}"]['checker'] for k, v in st.session_state.items() if "checker" in k \
+                     and k.split('checker')[1].split('-')[1].split('_')[0] in dailies.keys()\
+                     and v not in [0, None, False]}
+            
+            if len(info) > 0:
                 modal = modal_window('dail', 'Task Details')
-                modal.write(list(check.values())[0])
+                modal.write(list(info.values())[0])
 
         customize_widget('stExpander', 'white')
 
 def _create_task(task_list: dict):
-    details, task, due, points = st.columns([0.2, 0.2, 0.3, 0.2])
     widgets = {
-        'number_input': task.number_input,
-        'checkbox': task.checkbox,
-        'text_input': task.text_input,
+        'number_input': st.number_input,
+        'checkbox': st.checkbox,
+        'text_input': st.text_input,
     }   
 
     for name, values in task_list.items():
         key = values['widget']+'-'+name+'_'+str(random.randint(1,1000))
         with st.container():
-            show_details = details.toggle('Task info', help='Enable to show details about this task!',
+            show_details = st.toggle('Task info', help='Enable to show details about this task!',
                                         key='details'+key)
-            check = widgets[values['widget']](name, value=values['default'], key=key)
-            due.warning(f'Due Date {values["due_date"]}', icon='🧭')
-            points.info(f'{values["pts"]}seeds', icon='🌱')
-            # if check:
-            #     st.session_state[f'{name}_check_status'] = True
-            # if show_details is True:
-            #     st.session_state[f'{name}_show_details_status'] = show_details
+            check = widgets[values['widget']](name, value=values['default'], key='checker'+key)
+            st.warning(f'Due Date {values["due_date"]}', icon='🧭')
+            st.info(f'{values["pts"]}seeds', icon='🌱')
+            st.divider()
+        if check not in [0, False, None]:
+            task_list = _update_value(task_list, name)
 
-        # if check:
-        #     st.session_state[f'{name}_check_status'] = check
-        # if show_details:
-        #     st.session_state[f'{name}_show_details_status'] = show_details
+    return task_list
+
+@st.cache_data
+def _update_value(task_list: dict, name: str):
+    task_list[name]['complete'] = True
+
+    return task_list
