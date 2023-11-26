@@ -28,5 +28,5 @@ def view(username: str, authenticator):
             help="You can change/reschedule this task"
             )
             st.divider()
-        customize_widget("stExpander", "whit")
+        customize_widget("stExpander", "white")
 
