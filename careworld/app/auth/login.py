@@ -38,6 +38,8 @@ def login_page():
         if new_reg:
             _register_users(authenticator)
 
+    st.session_state['auth_obj'] = authenticator
+
 def _register_users(authenticator):
     # modal = Modal("User Registration", key='user_reg')
     # modal.open()

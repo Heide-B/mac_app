@@ -3,9 +3,10 @@ from utils.helpers import customize_widget, modal_window
 from datetime import datetime
 import random
 
-def view(username: str):
+def view(username: str, authenticator):
     with st.container():
-        st.title(f'Welcome adventurer: {username}')
+        st.title(f'Welcome Adventurer: {username}')
+        authenticator.logout('Logout', 'main')
         st.divider()
     
     task_list = {
