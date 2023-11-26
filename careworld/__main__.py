@@ -23,7 +23,7 @@ if __name__ == '__main__':
     # Load background image
     bg_image = 'careworld/images/background.png'
     set_bg_hack(bg_image)
-
+    st.title('CareWorld')
     if 'authentication_status' not in st.session_state or st.session_state['authentication_status'] == None:
         login_page()
     elif 'authentication_status' in st.session_state or st.session_state['authentication_status']:
