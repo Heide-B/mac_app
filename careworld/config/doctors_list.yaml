@@ -1,0 +1,6 @@
+Physician Consultation:
+  status: 'Upcoming'
+  date: [2023,11,26]
+HbA1c Laboratory:
+  status: 'Completed'
+  date: [2024,4,14]

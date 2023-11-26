@@ -1,6 +1,8 @@
 import streamlit as st
 from utils.helpers import customize_widget
 from datetime import datetime
+import yaml
+from yaml.loader import BaseLoader, FullLoader
 
 def view(username: str, authenticator):
     with st.container():
@@ -8,16 +10,12 @@ def view(username: str, authenticator):
         authenticator.logout('Logout', 'main')
         st.divider()
 
-    task_list = {
-        "Physician Consultation": {
-            "status": 'Upcoming',
-            "date": datetime.today().date(),
-        },
-        "HbA1c Laboratory": {
-            "status": 'Completed',
-            "date": datetime(2024, 2, 14).date(),
-        },
-    }
+    with open('careworld/config/doctors_list.yaml') as file:
+        task_list = yaml.load(file, BaseLoader)    
+        for name in task_list.keys():
+            task_list[name]['date'] = datetime(int(task_list[name]['date'][0]),
+                                            int(task_list[name]['date'][1]),
+                                            int(task_list[name]['date'][2])).date()
 
     with st.container():
         with st.expander("Patient Briggs"):
@@ -75,5 +73,8 @@ def _add_task(task_list: dict):
                     "status": status,
                     "date": due_date
                 }
-            
-    return task_list
+
+@st.cache_data
+def dump_date(config_path: str, data):
+    with open(config_path, 'w') as file:
+        yaml.dump(data, file)
