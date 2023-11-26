@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "careworld-mac-cee",
+  "private_key_id": "1d15b376f720adf8c1724c15b32954a7cf81b685",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDQnDbuFZJUE4wN\nijaN/ldfmYk3pv0jC+Q8K7JVCsiEurgngDjLXOSmV5SfxWaCBu7LPEButZRPUAN9\nony/xwgWWR8nsW3hO9MpSj1Bi+mWGhos7mjzE7qTJgKxRZ8Jwz8qYR61iVg1iZVq\nQuevABVI+SWR1++l6gDZJszKdrSFcidRZ1N/P+UoEO0LDQdXkz11dMTQQO4kq5cy\nMrNI+orHRq2D5VbLx82PiByX60qUKZzemZ5XhXEdmN7QT1Dyqa7ORaskyDfTKXFW\nB8paQcCZQSnXZkgQm5PhOf1r3+XNHtxnSraeIkz9q2NgxwA8AQrdHhvUWHXYZrDB\nGQDQCg8jAgMBAAECggEAJaXjpfEfsOu8LV9hvBuIQjkP0grhiVcmkBNkwkNJb+bQ\nwFQ8K7tuinSo3nK+Lr44j1Ym3LQJeYzbrGtML0Iou/vGix/S0EC/Oabryi4JcGzy\nh2RZbXEEjXThLIP/kT/64NeZNrL8R+E2JXDApk0SClLojFsXpW5HS+lcMTfeGWzu\nViU1Yynxy+n274TJYls3QqAfJ/GO4rHYGypi9vDjDq9T8giAf6xpWt+pVNBqaNgd\nXzvhCEOnpPM2OnjwwKKtvR/MtbQZSOtwVyr2apR1/BG/pFHXtLuIo9VQwt4NNBJc\nRA1y+mrXOxZTNvdwOlEFrRavW6FaY3vEHhth+2jBEQKBgQD9a42/Nyfo41suw5jd\nyBRU3ctvyDgN4hdJi/UboI7uchUsafTDBs8FU4NtfpiZe4zR8WWfhFXpXdvCUr8f\nYTVES4WD/JRJK1e7fdq6252ITQv09dsXuC7A/tRn5L8PR9d9VSPZ5PfsMx8U7bEO\naIxAXaKOAWOFxNpK34fRvSUHUwKBgQDSu+FcFaIcSJxxs4qcGZib3b+yFF4M+5+u\nimftGmoH2aNtWo96u9nBEyRxW8x1cDfLfht/ubpLgpigK+UfJafr+z6agt1oofAX\n8hl7NR4snq3WY/7KmpvT1u/hIMaOrhEBBEirklQVcsdNgG/iT+2cUS1i2lrJE5lk\nrr7y/kXu8QKBgQCByzpYO0mnj/q9otSCkt1G8iol4GhFRA0lUBeDxOIv4iJSExqX\nYL9bPQDNbc9+nLbtODQSVVcjJT1O886LpeAAUKXbidvw9dADaVxD5AN1MfDzz5Ad\nP+pCUsI7S/9HNkZ6HMc17H3GbhB3SZ4rgQSEWvDMxo1QkBg1zPLlS3jRnQKBgDIo\nlBBl+cr/oXUSxgg3s3JOCqWpYWV3st9JhEkUQ26Q5+xMZOBSvBbPppnwvq6pQi6G\nWqdBHs2ATTG6oPOT8+8gQxtl0Ktp+ArLDjOcRg1ay4e/D1NMD5ERlNEiCwDE/7kd\nOurTjn34buXMj1Tvr1/IlqPz0y4PIzCqwzp1OVIRAoGBAJbTxHnvun8wHGVgQu4I\n3/d5tTDjRunL1hAgN/JLagrOfGPdgdiOZ4ZUfewJO8yuG9UNCIqsuw/WEBSlOtMY\nSuRz6R2WpSsZAkOWBrh4OHspzONJsQqRdJDav2WaYMTLM/yRXdHneueIaeB0bt0V\nzRxpRjqZ7BNQJoq1A71QAV/t\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-hh3t1@careworld-mac-cee.iam.gserviceaccount.com",
+  "client_id": "102580893053289583719",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-hh3t1%40careworld-mac-cee.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

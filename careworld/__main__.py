@@ -3,7 +3,7 @@ from utils.helpers import set_bg_hack
 import streamlit as st
 
 if __name__ == '__main__':
-    st.set_page_config(layout="wide",
+    st.set_page_config(layout="centered",
                        initial_sidebar_state="collapsed")
     # Hide menu and footers
     hide_streamlit_style = """
