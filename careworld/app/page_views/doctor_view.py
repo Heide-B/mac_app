@@ -20,9 +20,10 @@ def view(username: str, authenticator):
             next_due.date_input(label="Upcoming Schedule", help="You can change /reschedule this task")
             st.divider()
 
-            tasks.subheader("HbA1c Laborator")
-            status.success("Completed")
-            next_due.date_input(label="Upcoming Schedule",
+            tasks2, status2, next_due2 = st.columns([0.6,0.2,0.2])
+            tasks2.subheader("HbA1c Laborator")
+            status2.success("Completed")
+            next_due2.date_input(label="Upcoming Schedule",
             value=datetime(2023,2,14),
             help="You can change/reschedule this task"
             )
