@@ -1,16 +1,23 @@
-# mac_app
-
-A new Flutter project.
+# CareWorld
+A cloud-based multi-platform system that tracks treatment progress and support, with engaging game mechanics for both patients and doctors.
+Demo Video:
+https://youtu.be/GgGB1clYeWE
 
 ## Getting Started
+This project was built for CEE Hackathon 2023.
+You may access the web application via this link
+https://careworld-cee2023.streamlit.app/
 
-This project is a starting point for a Flutter application.
+Alternatively, you can download the mobile application through the apk file.
 
-A few resources to get you started if this is your first Flutter project:
+You may use the following test credentials:
+Patient profile
+username: rbriggs
+password: def
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Doctor profile
+username: jsmith
+password: abc
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## DISCLAIMER!
+This application is only a Proof of Concept! Not all functionality may be fully available. If you wish to pursue this venture with us kindly email the developers of the project/repository.
